@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+  <div class="search-form-control form-group d-flex justify-content-center">
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search by name or location"
+    %>
+     <%= button_tag(type: "submit", class:"btn btn-search") do  %>
+      <i class="fas fa-search"></i> Search
+      <% end %>
+  </div>
+
+
+<div class='container-card d-flex justify-content-center my-4'>
+
+<div class="card-product">
+  <img src="https://res.cloudinary.com/dvallavgs/image/upload/v1588857322/beach-dawn-dusk-ocean-189349_xj7bcl.jpg" />
+  <div class="card-product-infos">
+    <h2>Spot name</h2>
+    <p>Spot description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+
+
+</div>
+  <%= render 'shared/footer' %>

@@ -1,0 +1,35 @@
+.banner-sign-up {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.bgr-color {
+  background-color: #FEFFF1;
+  height: 100%;
+}
+
+.forms-input {
+  color: #3C4452;
+}
+
+.btn-one {
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  background-color: #3C4452;
+  color: #FEFFF1;
+}
+
+.btn-two {
+  margin-bottom: 50px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-color: #3C4452;
+  color: #FEFFF1;
+}
