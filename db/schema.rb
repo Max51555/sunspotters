@@ -10,38 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_080842) do
+ActiveRecord::Schema.define(version: 2020_05_08_102317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "user"
+    t.integer "following"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
     t.bigint "spot_id"
-    t.bigint "spotter_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["spot_id"], name: "index_reviews_on_spot_id"
-    t.index ["spotter_id"], name: "index_reviews_on_spotter_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "spots", force: :cascade do |t|
     t.string "location"
     t.string "title"
     t.string "description"
-    t.bigint "spotter_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["spotter_id"], name: "index_spots_on_spotter_id"
-  end
-
-  create_table "spotters", force: :cascade do |t|
-    t.string "name"
-    t.string "city"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -71,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_080842) do
   end
 
   add_foreign_key "reviews", "spots"
-  add_foreign_key "reviews", "spotters"
-  add_foreign_key "spots", "spotters"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "spots", "users"
   add_foreign_key "tags", "spots"
 end

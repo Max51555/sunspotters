@@ -1,3 +1,3 @@
 class Spot < ApplicationRecord
-  belongs_to :spotter
+  belongs_to :user
 end
